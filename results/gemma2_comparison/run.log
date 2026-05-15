@@ -1,0 +1,54 @@
+Gemma 2 long-prompt comparison
+  prompts=prompts/length_ablation_8k.txt
+  repo=google/gemma-2-2b model_type=gemma2
+  strategies=standard,h2o,hybrid_h2o
+  memory_budget_mb=256
+  max_tokens=32
+
+Inspecting prompt files in prompts
+------------------------------------------------------------
+length_ablation_8k.txt          n=  5  words [ 6624- 6685]  median_words= 6636
+  categories: {'retrieval': 1, 'long_context': 1, 'reasoning': 1, 'technical': 1, 'creative': 1}
+  word buckets: {'>=4000': 5}
+retrieval    tokens=7485
+long_context tokens=7735
+reasoning    tokens=7858
+technical    tokens=7842
+creative     tokens=7705
+median_tokens=7735 max_positions_with_generation=7890
+
+Downloading / locating weights…
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files:  17%|█▋        | 1/6 [00:10<00:52, 10.50s/it]Fetching 6 files: 100%|██████████| 6/6 [00:10<00:00,  1.75s/it]
+Loading model on cuda…
+Running 5 prompts × 3 strategies × 1 MB iso-memory budgets…
+  [1/5] retrieval: 'A courthouse archivist prepares an evidence transf'
+    standard         mem_mb= 256  ppl=  1.18  kl=0.0000  prefill=2497ms decode=34.1ms/tok  7.1s
+    h2o              mem_mb= 256  ppl=  1.18  kl=0.0001  prefill=2509ms decode=36.5ms/tok  7.4s
+    hybrid_h2o       mem_mb= 256  ppl=  1.15  kl=0.0140  prefill=2515ms decode=38.3ms/tok  7.5s
+  [2/5] long_context: 'A university policy office publishes a semester ho'
+    standard         mem_mb= 256  ppl=  1.05  kl=0.0000  prefill=2670ms decode=34.1ms/tok  7.5s
+    h2o              mem_mb= 256  ppl=  1.05  kl=0.0001  prefill=2668ms decode=36.5ms/tok  7.7s
+    hybrid_h2o       mem_mb= 256  ppl=  1.05  kl=0.0137  prefill=2686ms decode=37.8ms/tok  7.8s
+  [3/5] reasoning: 'A clinic schedule has three rules: Dr. Vale works '
+    standard         mem_mb= 256  ppl=  1.15  kl=0.0000  prefill=2445ms decode=34.2ms/tok  7.0s
+    h2o              mem_mb= 256  ppl=  1.15  kl=0.0000  prefill=2445ms decode=36.6ms/tok  7.2s
+    hybrid_h2o       mem_mb= 256  ppl=  1.17  kl=0.0110  prefill=2453ms decode=38.1ms/tok  7.3s
+  [4/5] technical: 'An OAuth service design note says refresh tokens m'
+    standard         mem_mb= 256  ppl=  1.14  kl=0.0000  prefill=2444ms decode=33.9ms/tok  7.0s
+    h2o              mem_mb= 256  ppl=  1.14  kl=0.0000  prefill=2436ms decode=36.1ms/tok  7.1s
+    hybrid_h2o       mem_mb= 256  ppl=  1.12  kl=0.0063  prefill=2440ms decode=37.6ms/tok  7.3s
+  [5/5] creative: 'An old violin maker left Mira a spruce violin, a s'
+    standard         mem_mb= 256  ppl=  1.11  kl=0.0000  prefill=2700ms decode=34.0ms/tok  7.5s
+    h2o              mem_mb= 256  ppl=  1.11  kl=0.0001  prefill=2709ms decode=36.1ms/tok  7.7s
+    hybrid_h2o       mem_mb= 256  ppl=  1.10  kl=0.0114  prefill=2700ms decode=38.1ms/tok  7.8s
+Results saved to results/gemma2_comparison/results.json (15
+runs)
+Mean perplexity by strategy
+   × memory budget (MB)
+┏━━━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃ strategy   ┃ mem_mb=256 ┃
+┡━━━━━━━━━━━━╇━━━━━━━━━━━━┩
+│ standard   │       1.13 │
+│ h2o        │       1.13 │
+│ hybrid_h2o │       1.12 │
+└────────────┴────────────┘

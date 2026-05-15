@@ -1,0 +1,72 @@
+Gemma 4 prompt-length ablation
+  label=length_1k
+  prompts=/tmp/gemma4_length_1k_prompts.txt
+  strategies=standard,h2o,snapkv,streaming,pyramidkv,hybrid_h2o,hybrid_snapkv,hybrid_streaming
+  memory_budget_mb=512
+  max_tokens=32
+
+Downloading / locating weights…
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files: 100%|██████████| 3/3 [00:00<00:00, 23258.62it/s]
+Loading model on cuda…
+Running 5 prompts × 8 strategies × 1 MB iso-memory budgets…
+  [1/5] retrieval: 'In the archive of a small observatory, a technicia'
+    standard         mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=125ms decode=76.8ms/tok  5.1s
+    h2o              mem_mb= 512  ppl=145676620.58  kl=13.1975  prefill=122ms decode=80.0ms/tok  5.3s
+    snapkv           mem_mb= 512  ppl=670125226.89  kl=14.7331  prefill=128ms decode=76.1ms/tok  5.0s
+    streaming        mem_mb= 512  ppl=305296121.93  kl=13.3182  prefill=124ms decode=76.4ms/tok  5.1s
+    pyramidkv        mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=123ms decode=77.0ms/tok  5.1s
+    hybrid_h2o       mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=126ms decode=77.6ms/tok  5.1s
+    hybrid_snapkv    mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=125ms decode=76.9ms/tok  5.1s
+    hybrid_streaming mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=126ms decode=77.3ms/tok  5.1s
+  [2/5] retrieval: 'A logistics coordinator writes a long transfer not'
+    standard         mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=130ms decode=76.1ms/tok  5.1s
+    h2o              mem_mb= 512  ppl=4090953209.89  kl=15.5377  prefill=126ms decode=79.4ms/tok  5.3s
+    snapkv           mem_mb= 512  ppl=5507678393.34  kl=16.5464  prefill=128ms decode=75.6ms/tok  5.0s
+    streaming        mem_mb= 512  ppl=130183541.66  kl=14.8339  prefill=127ms decode=76.1ms/tok  5.1s
+    pyramidkv        mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=124ms decode=76.2ms/tok  5.1s
+    hybrid_h2o       mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=130ms decode=76.9ms/tok  5.1s
+    hybrid_snapkv    mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=127ms decode=76.7ms/tok  5.1s
+    hybrid_streaming mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=130ms decode=76.6ms/tok  5.1s
+  [3/5] retrieval: 'During a software incident review, the lead engine'
+    standard         mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=126ms decode=76.6ms/tok  5.1s
+    h2o              mem_mb= 512  ppl=15714869.92  kl=14.5474  prefill=121ms decode=80.1ms/tok  5.3s
+    snapkv           mem_mb= 512  ppl=723743872.23  kl=15.8238  prefill=126ms decode=75.6ms/tok  5.0s
+    streaming        mem_mb= 512  ppl=164143587.49  kl=15.2998  prefill=125ms decode=76.3ms/tok  5.1s
+    pyramidkv        mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=123ms decode=76.9ms/tok  5.1s
+    hybrid_h2o       mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=126ms decode=76.7ms/tok  5.1s
+    hybrid_snapkv    mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=127ms decode=77.1ms/tok  5.1s
+    hybrid_streaming mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=124ms decode=77.2ms/tok  5.1s
+  [4/5] retrieval: 'A conference programme committee notes three logis'
+    standard         mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=132ms decode=76.1ms/tok  5.1s
+    h2o              mem_mb= 512  ppl=70981678.88  kl=14.1532  prefill=130ms decode=79.5ms/tok  5.3s
+    snapkv           mem_mb= 512  ppl=20108175.65  kl=13.4200  prefill=135ms decode=75.6ms/tok  5.0s
+    streaming        mem_mb= 512  ppl=1135124315.39  kl=14.6935  prefill=134ms decode=76.5ms/tok  5.1s
+    pyramidkv        mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=130ms decode=76.7ms/tok  5.1s
+    hybrid_h2o       mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=136ms decode=77.2ms/tok  5.1s
+    hybrid_snapkv    mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=131ms decode=76.8ms/tok  5.1s
+    hybrid_streaming mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=136ms decode=77.1ms/tok  5.1s
+  [5/5] retrieval: 'A bio lab tech logs three constraints before a lon'
+    standard         mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=134ms decode=76.7ms/tok  5.1s
+    h2o              mem_mb= 512  ppl=735029014.73  kl=14.7971  prefill=131ms decode=79.6ms/tok  5.3s
+    snapkv           mem_mb= 512  ppl=492860895.80  kl=14.6505  prefill=129ms decode=75.3ms/tok  5.0s
+    streaming        mem_mb= 512  ppl=909343033.86  kl=15.3623  prefill=136ms decode=75.8ms/tok  5.1s
+    pyramidkv        mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=134ms decode=76.3ms/tok  5.1s
+    hybrid_h2o       mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=131ms decode=77.0ms/tok  5.1s
+    hybrid_snapkv    mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=136ms decode=76.8ms/tok  5.1s
+    hybrid_streaming mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=132ms decode=76.6ms/tok  5.1s
+Results saved to results/gemma4_length_ablation/length_1k.json (40
+runs)
+Mean perplexity by strategy × memory
+            budget (MB)
+┏━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ strategy         ┃    mem_mb=512 ┃
+┡━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ standard         │         21.24 │
+│ h2o              │ 1011671078.80 │
+│ snapkv           │ 1482903312.78 │
+│ streaming        │  528818120.07 │
+│ pyramidkv        │         21.24 │
+│ hybrid_h2o       │         21.24 │
+│ hybrid_snapkv    │         21.24 │
+│ hybrid_streaming │         21.24 │
+└──────────────────┴───────────────┘
