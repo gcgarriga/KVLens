@@ -53,6 +53,30 @@ pip install -e ".[dev]"
 pytest -m "not integration"
 ```
 
+### Command-line usage
+
+Installing the package makes the `kvlens` console command available:
+
+```bash
+pip install -e ".[dev]"
+kvlens --help
+```
+
+Common CLI entry points:
+
+```bash
+kvlens info --tiny
+kvlens generate --prompt "..." --repo-id google/gemma-4-e4b
+kvlens experiment --prompts prompts/eval_prompts.txt --repo-id ... --output results.json
+kvlens plot --input results.json --output-dir figures/
+```
+
+Repository scripts such as `scripts/validate_results.py` are standalone artifact
+checks and do not invoke the `kvlens` console command. For example, the
+validation command below only reads an existing results JSON and figure
+directory. To generate model outputs or experiment results, install the package
+first and use the `kvlens` CLI or the provided experiment scripts.
+
 What can be regenerated offline from the committed JSON artifacts alone:
 
 - The length-threshold ablation, the Gemma 2 comparison, and the already
