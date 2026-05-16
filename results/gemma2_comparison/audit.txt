@@ -1,0 +1,29 @@
+Gemma 2 comparison audit
+========================
+
+Source: results/gemma2_comparison/results.json
+Run log: results/gemma2_comparison/run.log
+Prompt set: prompts/length_ablation_8k.txt
+Configuration: 5 prompts × {standard,h2o,hybrid_h2o} × mb=256 × max_tokens=32
+
+Prompt tokenizer gate from run log:
+  token counts: retrieval=7485, long_context=7735, reasoning=7858, technical=7842, creative=7705
+  median_tokens=7735, max(prompt_tokens)+32=7890 <= Gemma 2 max_position_embeddings=8192
+
+Acceptance gate from handover §5:
+  hybrid_h2o at mb=256 on Gemma 2 with 8k prompts must have KL <= 0.05 vs standard.
+
+strategy      n  median_kl     max_kl   median_ppl median_actual_mb
+standard      5     0.0000     0.0000         1.14           631.68
+h2o           5     0.0001     0.0001         1.14           631.68
+hybrid_h2o    5     0.0114     0.0140         1.12           486.53
+
+Gate decision:
+  PASS — hybrid_h2o median KL=0.0114 <= 0.05.
+
+Scope decision:
+  h2o did not collapse: median KL=0.0001, max KL=0.0001, far below the KL >= 7 collapse criterion.
+  Paper claim should narrow to a Gemma 4 case study with mechanistic implications for hybrid models, not a demonstrated Gemma-family generalization.
+
+Failure-mode check:
+  hybrid_h2o did not fail on Gemma 2, so the handover §7 stop condition is not triggered.

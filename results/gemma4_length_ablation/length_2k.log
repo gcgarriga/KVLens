@@ -1,0 +1,72 @@
+Gemma 4 prompt-length ablation
+  label=length_2k
+  prompts=prompts/length_ablation_long.txt
+  strategies=standard,h2o,snapkv,streaming,pyramidkv,hybrid_h2o,hybrid_snapkv,hybrid_streaming
+  memory_budget_mb=512
+  max_tokens=32
+
+Downloading / locating weights…
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files: 100%|██████████| 3/3 [00:00<00:00, 55676.60it/s]
+Loading model on cuda…
+Running 5 prompts × 8 strategies × 1 MB iso-memory budgets…
+  [1/5] reasoning: 'A deployment checklist says migrations run before '
+    standard         mem_mb= 512  ppl= 21.37  kl=0.0000  prefill=317ms decode=75.1ms/tok  5.3s
+    h2o              mem_mb= 512  ppl=26524472.06  kl=14.7672  prefill=314ms decode=77.3ms/tok  5.6s
+    snapkv           mem_mb= 512  ppl=346909212.92  kl=15.4048  prefill=316ms decode=73.7ms/tok  5.3s
+    streaming        mem_mb= 512  ppl=178338017.85  kl=15.5160  prefill=315ms decode=74.4ms/tok  5.3s
+    pyramidkv        mem_mb= 512  ppl= 21.37  kl=0.0000  prefill=317ms decode=75.2ms/tok  5.4s
+    hybrid_h2o       mem_mb= 512  ppl= 21.37  kl=0.0000  prefill=317ms decode=74.2ms/tok  5.3s
+    hybrid_snapkv    mem_mb= 512  ppl= 21.37  kl=0.0000  prefill=315ms decode=73.8ms/tok  5.3s
+    hybrid_streaming mem_mb= 512  ppl= 21.37  kl=0.0000  prefill=315ms decode=74.8ms/tok  5.3s
+  [2/5] retrieval: 'A courthouse archivist prepares an evidence transf'
+    standard         mem_mb= 512  ppl= 15.59  kl=0.0000  prefill=283ms decode=73.6ms/tok  5.2s
+    h2o              mem_mb= 512  ppl=48860468.75  kl=14.4316  prefill=282ms decode=76.9ms/tok  5.4s
+    snapkv           mem_mb= 512  ppl=51853213.09  kl=13.6726  prefill=284ms decode=73.2ms/tok  5.2s
+    streaming        mem_mb= 512  ppl=224200260.82  kl=14.9284  prefill=283ms decode=73.7ms/tok  5.2s
+    pyramidkv        mem_mb= 512  ppl= 15.59  kl=0.0000  prefill=283ms decode=73.8ms/tok  5.2s
+    hybrid_h2o       mem_mb= 512  ppl= 15.59  kl=0.0000  prefill=283ms decode=75.0ms/tok  5.3s
+    hybrid_snapkv    mem_mb= 512  ppl= 15.59  kl=0.0000  prefill=283ms decode=74.7ms/tok  5.3s
+    hybrid_streaming mem_mb= 512  ppl= 15.59  kl=0.0000  prefill=283ms decode=73.9ms/tok  5.2s
+  [3/5] creative: 'The travelling theatre owned three masks: a laughi'
+    standard         mem_mb= 512  ppl= 11.84  kl=0.0000  prefill=315ms decode=73.6ms/tok  5.3s
+    h2o              mem_mb= 512  ppl=81334187.44  kl=15.0347  prefill=314ms decode=76.5ms/tok  5.5s
+    snapkv           mem_mb= 512  ppl=90548818.01  kl=15.3233  prefill=315ms decode=72.9ms/tok  5.2s
+    streaming        mem_mb= 512  ppl=282045414.16  kl=14.6884  prefill=316ms decode=73.6ms/tok  5.3s
+    pyramidkv        mem_mb= 512  ppl= 11.84  kl=0.0000  prefill=314ms decode=73.9ms/tok  5.3s
+    hybrid_h2o       mem_mb= 512  ppl= 11.84  kl=0.0000  prefill=317ms decode=75.0ms/tok  5.3s
+    hybrid_snapkv    mem_mb= 512  ppl= 11.84  kl=0.0000  prefill=316ms decode=74.9ms/tok  5.3s
+    hybrid_streaming mem_mb= 512  ppl= 11.84  kl=0.0000  prefill=314ms decode=74.5ms/tok  5.3s
+  [4/5] technical: 'A machine-learning evaluation note says validation'
+    standard         mem_mb= 512  ppl= 12.86  kl=0.0000  prefill=291ms decode=73.4ms/tok  5.2s
+    h2o              mem_mb= 512  ppl=503629586.43  kl=14.9738  prefill=290ms decode=76.7ms/tok  5.4s
+    snapkv           mem_mb= 512  ppl=136562395.13  kl=15.1561  prefill=293ms decode=73.0ms/tok  5.2s
+    streaming        mem_mb= 512  ppl=208297932.47  kl=15.9299  prefill=292ms decode=73.2ms/tok  5.2s
+    pyramidkv        mem_mb= 512  ppl= 12.86  kl=0.0000  prefill=290ms decode=73.5ms/tok  5.2s
+    hybrid_h2o       mem_mb= 512  ppl= 12.86  kl=0.0000  prefill=293ms decode=74.4ms/tok  5.3s
+    hybrid_snapkv    mem_mb= 512  ppl= 12.86  kl=0.0000  prefill=293ms decode=74.4ms/tok  5.3s
+    hybrid_streaming mem_mb= 512  ppl= 12.86  kl=0.0000  prefill=292ms decode=74.7ms/tok  5.3s
+  [5/5] long_context: 'A space station maintenance bulletin spans several'
+    standard         mem_mb= 512  ppl= 28.67  kl=0.0000  prefill=289ms decode=73.7ms/tok  5.2s
+    h2o              mem_mb= 512  ppl=42494780.53  kl=13.6816  prefill=288ms decode=76.5ms/tok  5.4s
+    snapkv           mem_mb= 512  ppl=634035986.59  kl=15.9075  prefill=291ms decode=72.7ms/tok  5.2s
+    streaming        mem_mb= 512  ppl=56762438.79  kl=14.5915  prefill=290ms decode=73.4ms/tok  5.2s
+    pyramidkv        mem_mb= 512  ppl= 28.67  kl=0.0000  prefill=289ms decode=73.7ms/tok  5.2s
+    hybrid_h2o       mem_mb= 512  ppl= 28.67  kl=0.0000  prefill=290ms decode=74.3ms/tok  5.3s
+    hybrid_snapkv    mem_mb= 512  ppl= 28.67  kl=0.0000  prefill=289ms decode=74.1ms/tok  5.3s
+    hybrid_streaming mem_mb= 512  ppl= 28.67  kl=0.0000  prefill=289ms decode=74.1ms/tok  5.3s
+Results saved to results/gemma4_length_ablation/length_2k.json (40
+runs)
+   Mean perplexity by strategy ×
+        memory budget (MB)
+┏━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
+┃ strategy         ┃   mem_mb=512 ┃
+┡━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
+│ standard         │        18.07 │
+│ h2o              │ 140568699.04 │
+│ snapkv           │ 251981925.15 │
+│ streaming        │ 189928812.82 │
+│ pyramidkv        │        18.07 │
+│ hybrid_h2o       │        18.07 │
+│ hybrid_snapkv    │        18.07 │
+│ hybrid_streaming │        18.07 │
+└──────────────────┴──────────────┘

@@ -1,0 +1,30 @@
+length      strategy            runs         med_ppl   med_kl   mem_actual_MB
+length_256  h2o                    5           22.05    0.000           18.81
+length_256  hybrid_h2o             5           22.05    0.000           18.81
+length_256  hybrid_snapkv          5           22.05    0.000           18.81
+length_256  hybrid_streaming       5           22.05    0.000           18.81
+length_256  pyramidkv              5           22.05    0.000           18.81
+length_256  snapkv                 5           22.05    0.000           18.81
+length_256  standard               5           22.05    0.000           18.81
+length_256  streaming              5           22.05    0.000           18.81
+length_1k   h2o                    5    145676620.58   14.547           42.07
+length_1k   hybrid_h2o             5           18.84    0.000           42.07
+length_1k   hybrid_snapkv          5           18.84    0.000           42.07
+length_1k   hybrid_streaming       5           18.84    0.000           42.07
+length_1k   pyramidkv              5           18.84    0.000           42.07
+length_1k   snapkv                 5    670125226.89   14.733           42.07
+length_1k   standard               5           18.84    0.000           42.07
+length_1k   streaming              5    305296121.93   14.834           42.07
+length_2k   h2o                    5     48860468.75   14.767           63.88
+length_2k   hybrid_h2o             5           15.59    0.000           63.88
+length_2k   hybrid_snapkv          5           15.59    0.000           63.88
+length_2k   hybrid_streaming       5           15.59    0.000           63.88
+length_2k   pyramidkv              5           15.59    0.000           63.88
+length_2k   snapkv                 5    136562395.13   15.323           63.88
+length_2k   standard               5           15.59    0.000           63.88
+length_2k   streaming              5    208297932.47   14.928           63.88
+collapse_magnitude h2o: length_1k=14.5474 length_2k=14.7672
+collapse_magnitude snapkv: length_1k=14.7331 length_2k=15.3233
+collapse_magnitude streaming: length_1k=14.8339 length_2k=14.9284
+
+GATE: PASS

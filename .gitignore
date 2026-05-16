@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+*.pyc
+.gspec/
+.worktrees/
+results/*
+!results/gemma4_full_sweep/
+!results/gemma4_hybrid_canary/
+!results/gemma4_length_ablation/
+!results/gemma2_comparison/
+.env
+.env.*
+!.env.example

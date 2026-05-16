@@ -1,0 +1,50 @@
+Global-eviction sensitivity on Gemma 4 (hybrid family, mb=64)
+=============================================================
+source: results/gemma4_full_sweep/results.json
+failure threshold: KL > 0.5
+
+Question: at the budget cell where hybrid_h2o loses to pyramidkv, how does Gemma 4's failure rate scale with the number of global tokens the hybrid allocator forced to be evicted?
+
+## hybrid_h2o at mb=64
+
+  prompts=50  failures(KL>0.5)=25  median_global_evict=348.0  max_global_evict=1284  median_KL=6.6211
+
+  Eviction-bin → failure rate:
+  bin               n  n_broken  frac_broken  median_kl
+  [0]              25         0        0.0%     0.0000
+  [501-1000]        5         5      100.0%    15.2101
+  [>1000]          20        20      100.0%    15.4000
+
+  largest non-failing run had 0 global tokens evicted
+  smallest failing run had     696 global tokens evicted
+
+## hybrid_snapkv at mb=64
+
+  prompts=50  failures(KL>0.5)=25  median_global_evict=348.0  max_global_evict=1284  median_KL=6.7570
+
+  Eviction-bin → failure rate:
+  bin               n  n_broken  frac_broken  median_kl
+  [0]              25         0        0.0%     0.0000
+  [501-1000]        5         5      100.0%    15.5606
+  [>1000]          20        20      100.0%    15.0832
+
+  largest non-failing run had 0 global tokens evicted
+  smallest failing run had     696 global tokens evicted
+
+## hybrid_streaming at mb=64
+
+  prompts=50  failures(KL>0.5)=25  median_global_evict=348.0  max_global_evict=1284  median_KL=6.8042
+
+  Eviction-bin → failure rate:
+  bin               n  n_broken  frac_broken  median_kl
+  [0]              25         0        0.0%     0.0000
+  [501-1000]        5         5      100.0%    14.4818
+  [>1000]          20        20      100.0%    14.7755
+
+  largest non-failing run had 0 global tokens evicted
+  smallest failing run had     696 global tokens evicted
+
+## pyramidkv at mb=64 (reference — recency rule + pyramid budget)
+  prompts=50  failures(KL>0.5)=0  median_global_evict=0.0  max_global_evict=0
+  Conclusion: pyramid + recency does not pressure globals at this budget;
+  with no global eviction Gemma 4 stays at standard quality.

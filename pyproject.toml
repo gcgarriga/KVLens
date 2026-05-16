@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project]
+name = "kvlens"
+version = "0.1.0"
+description = "Educational Gemma 4 E4B inference engine with instrumented KV cache"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+    "torch>=2.1.0",
+    "sentencepiece>=0.2.0",
+    "tokenizers>=0.20.0",
+    "rich>=13.0.0",
+    "safetensors>=0.4.0",
+    "huggingface_hub>=0.20.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.4.0",
+    "matplotlib>=3.8.0",
+    "mypy>=1.10.0",
+]
+
+[project.scripts]
+kvlens = "kvlens.cli:main"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 99
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: tests that require external model artifacts",
+]

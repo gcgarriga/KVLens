@@ -1,0 +1,290 @@
+Gemma 4 hybrid canary
+  prompts=/tmp/gemma4_hybrid_canary_prompts.txt
+  strategies=standard,h2o,snapkv,streaming,pyramidkv,all_layers_h2o,all_layers_snapkv,all_layers_streaming,all_layers_pyramidkv,proportional_h2o,proportional_snapkv,proportional_streaming,proportional_pyramidkv,hybrid_h2o,hybrid_snapkv,hybrid_streaming
+  memory_budget_mb=4,64,512
+  max_tokens=32
+
+Downloading / locating weights…
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎      | 1/3 [00:20<00:41, 20.70s/it]Fetching 3 files: 100%|██████████| 3/3 [00:20<00:00,  6.90s/it]
+Loading model on cuda…
+Running 5 prompts × 16 strategies × 3 MB iso-memory budgets…
+  [1/5] retrieval: 'In the archive of a small observatory, a technicia'
+    standard         mem_mb=   4  ppl= 30.95  kl=0.0000  prefill=123ms decode=75.1ms/tok  5.0s
+    h2o              mem_mb=   4  ppl=2427020082.93  kl=14.5237  prefill=126ms decode=78.0ms/tok  5.2s
+    snapkv           mem_mb=   4  ppl=19365747.96  kl=13.0273  prefill=126ms decode=74.5ms/tok  5.0s
+    streaming        mem_mb=   4  ppl=344192474.71  kl=15.3628  prefill=128ms decode=75.1ms/tok  5.0s
+    pyramidkv        mem_mb=   4  ppl=181343826.33  kl=14.9831  prefill=126ms decode=74.6ms/tok  5.0s
+    all_layers_h2o   mem_mb=   4  ppl=122752060.27  kl=14.8902  prefill=128ms decode=78.2ms/tok  5.2s
+    all_layers_snapkv mem_mb=   4  ppl=38814934.62  kl=14.0078  prefill=128ms decode=74.5ms/tok  4.9s
+    all_layers_streaming mem_mb=   4  ppl=729673518.82  kl=14.8283  prefill=131ms decode=74.3ms/tok  4.9s
+    all_layers_pyramidkv mem_mb=   4  ppl=1328487684.13  kl=15.6718  prefill=130ms decode=75.0ms/tok  5.0s
+    proportional_h2o mem_mb=   4  ppl=505141911.34  kl=15.7528  prefill=129ms decode=78.2ms/tok  5.2s
+    proportional_snapkv mem_mb=   4  ppl=118431769.12  kl=14.5806  prefill=129ms decode=74.2ms/tok  4.9s
+    proportional_streaming mem_mb=   4  ppl=114994434.22  kl=14.1965  prefill=129ms decode=75.1ms/tok  5.0s
+    proportional_pyramidkv mem_mb=   4  ppl=48012944.10  kl=12.8113  prefill=130ms decode=76.3ms/tok  5.0s
+    hybrid_h2o       mem_mb=   4  ppl=24074002.13  kl=13.9015  prefill=126ms decode=76.9ms/tok  5.1s
+    hybrid_snapkv    mem_mb=   4  ppl=178431924.73  kl=14.5763  prefill=124ms decode=75.1ms/tok  5.0s
+    hybrid_streaming mem_mb=   4  ppl=759186270.51  kl=15.6071  prefill=126ms decode=76.0ms/tok  5.0s
+    standard         mem_mb=  64  ppl= 30.95  kl=0.0000  prefill=124ms decode=74.2ms/tok  4.9s
+    h2o              mem_mb=  64  ppl=145676620.58  kl=13.1975  prefill=122ms decode=77.5ms/tok  5.1s
+    snapkv           mem_mb=  64  ppl=670125226.89  kl=14.7331  prefill=126ms decode=74.6ms/tok  4.9s
+    streaming        mem_mb=  64  ppl=305296121.93  kl=13.3182  prefill=124ms decode=74.7ms/tok  5.0s
+    pyramidkv        mem_mb=  64  ppl= 30.95  kl=0.0000  prefill=123ms decode=76.7ms/tok  5.0s
+    all_layers_h2o   mem_mb=  64  ppl=43676611.17  kl=14.5697  prefill=121ms decode=80.5ms/tok  5.5s
+    all_layers_snapkv mem_mb=  64  ppl=89195331.96  kl=14.0408  prefill=128ms decode=74.6ms/tok  5.0s
+    all_layers_streaming mem_mb=  64  ppl=231844537.08  kl=15.0832  prefill=122ms decode=76.4ms/tok  5.1s
+    all_layers_pyramidkv mem_mb=  64  ppl=122045.78  kl=7.4525  prefill=121ms decode=76.3ms/tok  5.0s
+    proportional_h2o mem_mb=  64  ppl=40789736.04  kl=13.2555  prefill=121ms decode=79.8ms/tok  5.4s
+    proportional_snapkv mem_mb=  64  ppl=94110268.53  kl=14.0330  prefill=124ms decode=76.8ms/tok  5.0s
+    proportional_streaming mem_mb=  64  ppl=88806083.50  kl=13.0143  prefill=122ms decode=76.0ms/tok  5.0s
+    proportional_pyramidkv mem_mb=  64  ppl=299579.78  kl=8.0746  prefill=122ms decode=76.1ms/tok  5.0s
+    hybrid_h2o       mem_mb=  64  ppl= 30.95  kl=0.0000  prefill=128ms decode=76.0ms/tok  5.1s
+    hybrid_snapkv    mem_mb=  64  ppl= 30.95  kl=0.0000  prefill=122ms decode=75.8ms/tok  5.0s
+    hybrid_streaming mem_mb=  64  ppl= 30.95  kl=0.0000  prefill=122ms decode=76.1ms/tok  5.0s
+    standard         mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=122ms decode=75.9ms/tok  5.0s
+    h2o              mem_mb= 512  ppl=145676620.58  kl=13.1975  prefill=122ms decode=78.8ms/tok  5.2s
+    snapkv           mem_mb= 512  ppl=670125226.89  kl=14.7331  prefill=125ms decode=75.1ms/tok  5.0s
+    streaming        mem_mb= 512  ppl=305296121.93  kl=13.3182  prefill=125ms decode=75.7ms/tok  5.0s
+    pyramidkv        mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=121ms decode=76.2ms/tok  5.0s
+    all_layers_h2o   mem_mb= 512  ppl=145676620.58  kl=13.1975  prefill=122ms decode=79.2ms/tok  5.2s
+    all_layers_snapkv mem_mb= 512  ppl=670125226.89  kl=14.7331  prefill=124ms decode=74.9ms/tok  5.0s
+    all_layers_streaming mem_mb= 512  ppl=305296121.93  kl=13.3182  prefill=125ms decode=75.6ms/tok  5.0s
+    all_layers_pyramidkv mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=124ms decode=76.0ms/tok  5.0s
+    proportional_h2o mem_mb= 512  ppl=145676620.58  kl=13.1975  prefill=121ms decode=78.6ms/tok  5.2s
+    proportional_snapkv mem_mb= 512  ppl=670125226.89  kl=14.7331  prefill=123ms decode=75.5ms/tok  5.0s
+    proportional_streaming mem_mb= 512  ppl=305296121.93  kl=13.3182  prefill=123ms decode=80.7ms/tok  5.1s
+    proportional_pyramidkv mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=124ms decode=75.1ms/tok  5.0s
+    hybrid_h2o       mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=125ms decode=76.1ms/tok  5.0s
+    hybrid_snapkv    mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=125ms decode=76.0ms/tok  5.0s
+    hybrid_streaming mem_mb= 512  ppl= 30.95  kl=0.0000  prefill=125ms decode=76.1ms/tok  5.0s
+  [2/5] retrieval: 'A logistics coordinator writes a long transfer not'
+    standard         mem_mb=   4  ppl= 16.72  kl=0.0000  prefill=125ms decode=75.1ms/tok  5.0s
+    h2o              mem_mb=   4  ppl=1139895319.92  kl=14.2999  prefill=130ms decode=78.0ms/tok  5.2s
+    snapkv           mem_mb=   4  ppl=54418766.23  kl=14.0465  prefill=132ms decode=74.5ms/tok  5.0s
+    streaming        mem_mb=   4  ppl=973783095.70  kl=16.1711  prefill=132ms decode=75.0ms/tok  5.0s
+    pyramidkv        mem_mb=   4  ppl=1699702937.06  kl=17.8570  prefill=131ms decode=75.6ms/tok  5.0s
+    all_layers_h2o   mem_mb=   4  ppl=1601420118.72  kl=15.6939  prefill=129ms decode=79.3ms/tok  5.3s
+    all_layers_snapkv mem_mb=   4  ppl=471962552.29  kl=15.1786  prefill=133ms decode=75.1ms/tok  5.0s
+    all_layers_streaming mem_mb=   4  ppl=38920858129.84  kl=18.4623  prefill=130ms decode=75.8ms/tok  5.0s
+    all_layers_pyramidkv mem_mb=   4  ppl=2958920106.88  kl=16.6306  prefill=125ms decode=75.2ms/tok  5.0s
+    proportional_h2o mem_mb=   4  ppl=1957880309.29  kl=17.4795  prefill=132ms decode=78.7ms/tok  5.2s
+    proportional_snapkv mem_mb=   4  ppl=249033844.09  kl=15.0171  prefill=131ms decode=74.2ms/tok  5.0s
+    proportional_streaming mem_mb=   4  ppl=6002889324.72  kl=16.6877  prefill=134ms decode=75.2ms/tok  5.0s
+    proportional_pyramidkv mem_mb=   4  ppl=676015169.75  kl=16.0925  prefill=133ms decode=75.1ms/tok  5.0s
+    hybrid_h2o       mem_mb=   4  ppl=1427084492.47  kl=16.5293  prefill=129ms decode=76.5ms/tok  5.1s
+    hybrid_snapkv    mem_mb=   4  ppl=3784400952.11  kl=17.6618  prefill=129ms decode=75.3ms/tok  5.0s
+    hybrid_streaming mem_mb=   4  ppl=2152744351.88  kl=16.9374  prefill=128ms decode=75.8ms/tok  5.0s
+    standard         mem_mb=  64  ppl= 16.72  kl=0.0000  prefill=128ms decode=74.8ms/tok  5.0s
+    h2o              mem_mb=  64  ppl=4090953209.89  kl=15.5377  prefill=124ms decode=78.1ms/tok  5.2s
+    snapkv           mem_mb=  64  ppl=5507678393.34  kl=16.5464  prefill=128ms decode=74.5ms/tok  4.9s
+    streaming        mem_mb=  64  ppl=130183541.66  kl=14.8339  prefill=128ms decode=75.2ms/tok  5.0s
+    pyramidkv        mem_mb=  64  ppl= 16.72  kl=0.0000  prefill=124ms decode=74.8ms/tok  5.0s
+    all_layers_h2o   mem_mb=  64  ppl=188996229.88  kl=15.6203  prefill=124ms decode=79.0ms/tok  5.2s
+    all_layers_snapkv mem_mb=  64  ppl=8838793560.70  kl=16.6946  prefill=128ms decode=74.4ms/tok  4.9s
+    all_layers_streaming mem_mb=  64  ppl=6420070958.57  kl=17.8648  prefill=128ms decode=75.2ms/tok  5.0s
+    all_layers_pyramidkv mem_mb=  64  ppl=92797.34  kl=7.8580  prefill=124ms decode=75.4ms/tok  5.0s
+    proportional_h2o mem_mb=  64  ppl=364764917.12  kl=15.3703  prefill=124ms decode=78.5ms/tok  5.2s
+    proportional_snapkv mem_mb=  64  ppl=8838793560.70  kl=16.6946  prefill=128ms decode=75.4ms/tok  5.0s
+    proportional_streaming mem_mb=  64  ppl=9587139045.59  kl=18.1241  prefill=128ms decode=75.3ms/tok  5.0s
+    proportional_pyramidkv mem_mb=  64  ppl=499221.31  kl=9.2286  prefill=128ms decode=75.2ms/tok  5.0s
+    hybrid_h2o       mem_mb=  64  ppl= 16.72  kl=0.0000  prefill=128ms decode=75.3ms/tok  5.0s
+    hybrid_snapkv    mem_mb=  64  ppl= 16.72  kl=0.0000  prefill=128ms decode=75.6ms/tok  5.0s
+    hybrid_streaming mem_mb=  64  ppl= 16.72  kl=0.0000  prefill=129ms decode=76.4ms/tok  5.0s
+    standard         mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=127ms decode=75.3ms/tok  5.0s
+    h2o              mem_mb= 512  ppl=4090953209.89  kl=15.5377  prefill=128ms decode=78.1ms/tok  5.3s
+    snapkv           mem_mb= 512  ppl=5507678393.34  kl=16.5464  prefill=129ms decode=73.9ms/tok  4.9s
+    streaming        mem_mb= 512  ppl=130183541.66  kl=14.8339  prefill=125ms decode=74.8ms/tok  5.0s
+    pyramidkv        mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=127ms decode=74.9ms/tok  5.0s
+    all_layers_h2o   mem_mb= 512  ppl=4090953209.89  kl=15.5377  prefill=124ms decode=78.3ms/tok  5.2s
+    all_layers_snapkv mem_mb= 512  ppl=5507678393.34  kl=16.5464  prefill=125ms decode=73.6ms/tok  4.9s
+    all_layers_streaming mem_mb= 512  ppl=130183541.66  kl=14.8339  prefill=127ms decode=75.1ms/tok  5.0s
+    all_layers_pyramidkv mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=128ms decode=75.3ms/tok  5.0s
+    proportional_h2o mem_mb= 512  ppl=4090953209.89  kl=15.5377  prefill=124ms decode=77.4ms/tok  5.2s
+    proportional_snapkv mem_mb= 512  ppl=5507678393.34  kl=16.5464  prefill=128ms decode=74.8ms/tok  4.9s
+    proportional_streaming mem_mb= 512  ppl=130183541.66  kl=14.8339  prefill=127ms decode=76.5ms/tok  5.0s
+    proportional_pyramidkv mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=128ms decode=78.6ms/tok  5.1s
+    hybrid_h2o       mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=132ms decode=75.0ms/tok  5.1s
+    hybrid_snapkv    mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=128ms decode=75.2ms/tok  5.0s
+    hybrid_streaming mem_mb= 512  ppl= 16.72  kl=0.0000  prefill=129ms decode=75.5ms/tok  5.1s
+  [3/5] retrieval: 'During a software incident review, the lead engine'
+    standard         mem_mb=   4  ppl= 16.20  kl=0.0000  prefill=122ms decode=74.6ms/tok  5.0s
+    h2o              mem_mb=   4  ppl=407602033.95  kl=16.1438  prefill=121ms decode=77.7ms/tok  5.1s
+    snapkv           mem_mb=   4  ppl=1249172757.89  kl=16.8807  prefill=129ms decode=74.7ms/tok  4.9s
+    streaming        mem_mb=   4  ppl=427884926.00  kl=15.1088  prefill=125ms decode=75.1ms/tok  5.0s
+    pyramidkv        mem_mb=   4  ppl=142922482.06  kl=15.8323  prefill=126ms decode=75.8ms/tok  5.0s
+    all_layers_h2o   mem_mb=   4  ppl=1713396586.98  kl=15.9794  prefill=129ms decode=79.1ms/tok  5.2s
+    all_layers_snapkv mem_mb=   4  ppl=434661267.77  kl=16.5541  prefill=131ms decode=74.7ms/tok  5.0s
+    all_layers_streaming mem_mb=   4  ppl=28673666.49  kl=14.9010  prefill=130ms decode=78.4ms/tok  5.1s
+    all_layers_pyramidkv mem_mb=   4  ppl=14586422.00  kl=14.1552  prefill=129ms decode=75.6ms/tok  5.0s
+    proportional_h2o mem_mb=   4  ppl=757866812.45  kl=15.6610  prefill=123ms decode=79.0ms/tok  5.2s
+    proportional_snapkv mem_mb=   4  ppl=3120608315.64  kl=16.7671  prefill=133ms decode=74.8ms/tok  5.0s
+    proportional_streaming mem_mb=   4  ppl=60831500.72  kl=15.4326  prefill=130ms decode=75.6ms/tok  5.0s
+    proportional_pyramidkv mem_mb=   4  ppl=171037870.28  kl=15.2212  prefill=124ms decode=74.9ms/tok  5.0s
+    hybrid_h2o       mem_mb=   4  ppl=512805182.83  kl=16.3280  prefill=121ms decode=76.2ms/tok  5.1s
+    hybrid_snapkv    mem_mb=   4  ppl=56728886.32  kl=14.4075  prefill=122ms decode=75.3ms/tok  5.0s
+    hybrid_streaming mem_mb=   4  ppl=113481417.41  kl=14.9077  prefill=123ms decode=75.4ms/tok  5.0s
+    standard         mem_mb=  64  ppl= 16.20  kl=0.0000  prefill=123ms decode=76.3ms/tok  5.0s
+    h2o              mem_mb=  64  ppl=15714869.92  kl=14.5474  prefill=122ms decode=78.3ms/tok  5.2s
+    snapkv           mem_mb=  64  ppl=723743872.23  kl=15.8238  prefill=125ms decode=74.1ms/tok  4.9s
+    streaming        mem_mb=  64  ppl=164143587.49  kl=15.2998  prefill=122ms decode=75.0ms/tok  5.0s
+    pyramidkv        mem_mb=  64  ppl= 16.20  kl=0.0000  prefill=124ms decode=74.5ms/tok  5.0s
+    all_layers_h2o   mem_mb=  64  ppl=59026636.99  kl=14.7373  prefill=121ms decode=78.5ms/tok  5.2s
+    all_layers_snapkv mem_mb=  64  ppl=358332503.24  kl=15.4173  prefill=123ms decode=74.5ms/tok  4.9s
+    all_layers_streaming mem_mb=  64  ppl=239139750.72  kl=15.1931  prefill=124ms decode=75.1ms/tok  5.0s
+    all_layers_pyramidkv mem_mb=  64  ppl=13725.65  kl=6.4319  prefill=124ms decode=81.1ms/tok  5.2s
+    proportional_h2o mem_mb=  64  ppl=53268280.16  kl=14.4269  prefill=121ms decode=78.9ms/tok  5.2s
+    proportional_snapkv mem_mb=  64  ppl=129627535.07  kl=15.3206  prefill=122ms decode=73.7ms/tok  4.9s
+    proportional_streaming mem_mb=  64  ppl=163070743.14  kl=14.9688  prefill=124ms decode=74.6ms/tok  5.0s
+    proportional_pyramidkv mem_mb=  64  ppl=54431.50  kl=7.9020  prefill=124ms decode=75.2ms/tok  5.0s
+    hybrid_h2o       mem_mb=  64  ppl= 16.20  kl=0.0000  prefill=126ms decode=76.0ms/tok  5.0s
+    hybrid_snapkv    mem_mb=  64  ppl= 16.20  kl=0.0000  prefill=125ms decode=75.4ms/tok  5.0s
+    hybrid_streaming mem_mb=  64  ppl= 16.20  kl=0.0000  prefill=125ms decode=75.4ms/tok  5.0s
+    standard         mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=125ms decode=74.7ms/tok  5.0s
+    h2o              mem_mb= 512  ppl=15714869.92  kl=14.5474  prefill=122ms decode=78.3ms/tok  5.2s
+    snapkv           mem_mb= 512  ppl=723743872.23  kl=15.8238  prefill=126ms decode=74.3ms/tok  4.9s
+    streaming        mem_mb= 512  ppl=164143587.49  kl=15.2998  prefill=124ms decode=75.1ms/tok  5.0s
+    pyramidkv        mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=122ms decode=74.4ms/tok  5.0s
+    all_layers_h2o   mem_mb= 512  ppl=15714869.92  kl=14.5474  prefill=120ms decode=78.2ms/tok  5.2s
+    all_layers_snapkv mem_mb= 512  ppl=723743872.23  kl=15.8238  prefill=125ms decode=74.3ms/tok  4.9s
+    all_layers_streaming mem_mb= 512  ppl=164143587.49  kl=15.2998  prefill=122ms decode=74.8ms/tok  5.0s
+    all_layers_pyramidkv mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=123ms decode=74.4ms/tok  5.0s
+    proportional_h2o mem_mb= 512  ppl=15714869.92  kl=14.5474  prefill=120ms decode=78.0ms/tok  5.2s
+    proportional_snapkv mem_mb= 512  ppl=723743872.23  kl=15.8238  prefill=123ms decode=73.7ms/tok  4.9s
+    proportional_streaming mem_mb= 512  ppl=164143587.49  kl=15.2998  prefill=124ms decode=74.7ms/tok  5.0s
+    proportional_pyramidkv mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=125ms decode=75.2ms/tok  5.0s
+    hybrid_h2o       mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=121ms decode=75.8ms/tok  5.0s
+    hybrid_snapkv    mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=122ms decode=75.5ms/tok  5.0s
+    hybrid_streaming mem_mb= 512  ppl= 16.20  kl=0.0000  prefill=122ms decode=76.1ms/tok  5.0s
+  [4/5] retrieval: 'A conference programme committee notes three logis'
+    standard         mem_mb=   4  ppl= 23.51  kl=0.0000  prefill=132ms decode=76.3ms/tok  5.0s
+    h2o              mem_mb=   4  ppl=1098826575.16  kl=16.6015  prefill=136ms decode=77.7ms/tok  5.2s
+    snapkv           mem_mb=   4  ppl=1405005154.59  kl=16.7245  prefill=136ms decode=74.2ms/tok  4.9s
+    streaming        mem_mb=   4  ppl=313914877.32  kl=15.2667  prefill=131ms decode=74.7ms/tok  5.0s
+    pyramidkv        mem_mb=   4  ppl=98034805.32  kl=14.9063  prefill=133ms decode=74.8ms/tok  5.0s
+    all_layers_h2o   mem_mb=   4  ppl=854859949.45  kl=16.6483  prefill=137ms decode=79.4ms/tok  5.2s
+    all_layers_snapkv mem_mb=   4  ppl=72159047.93  kl=15.2526  prefill=138ms decode=74.6ms/tok  5.0s
+    all_layers_streaming mem_mb=   4  ppl=1979980824.14  kl=16.4647  prefill=139ms decode=75.2ms/tok  5.0s
+    all_layers_pyramidkv mem_mb=   4  ppl=2227757864.31  kl=15.3812  prefill=139ms decode=75.2ms/tok  5.0s
+    proportional_h2o mem_mb=   4  ppl=163510513.32  kl=14.8543  prefill=134ms decode=78.7ms/tok  5.2s
+    proportional_snapkv mem_mb=   4  ppl=405769078.89  kl=16.0194  prefill=132ms decode=74.0ms/tok  4.9s
+    proportional_streaming mem_mb=   4  ppl=766121981.06  kl=16.8778  prefill=136ms decode=75.0ms/tok  5.0s
+    proportional_pyramidkv mem_mb=   4  ppl=232212746.51  kl=14.3513  prefill=138ms decode=75.6ms/tok  5.0s
+    hybrid_h2o       mem_mb=   4  ppl=1745947725.77  kl=16.4025  prefill=132ms decode=76.2ms/tok  5.1s
+    hybrid_snapkv    mem_mb=   4  ppl=30342668.79  kl=13.7362  prefill=131ms decode=78.1ms/tok  5.1s
+    hybrid_streaming mem_mb=   4  ppl=627734263.25  kl=15.1543  prefill=135ms decode=75.9ms/tok  5.1s
+    standard         mem_mb=  64  ppl= 23.51  kl=0.0000  prefill=133ms decode=75.4ms/tok  5.0s
+    h2o              mem_mb=  64  ppl=70981678.88  kl=14.1532  prefill=129ms decode=79.1ms/tok  5.2s
+    snapkv           mem_mb=  64  ppl=20108175.65  kl=13.4200  prefill=132ms decode=73.8ms/tok  4.9s
+    streaming        mem_mb=  64  ppl=1135124315.39  kl=14.6935  prefill=130ms decode=74.6ms/tok  5.0s
+    pyramidkv        mem_mb=  64  ppl= 23.51  kl=0.0000  prefill=132ms decode=75.5ms/tok  5.0s
+    all_layers_h2o   mem_mb=  64  ppl=1098736457.50  kl=15.1423  prefill=130ms decode=78.9ms/tok  5.2s
+    all_layers_snapkv mem_mb=  64  ppl=2295539091.26  kl=16.5455  prefill=133ms decode=74.8ms/tok  4.9s
+    all_layers_streaming mem_mb=  64  ppl=902856944.65  kl=14.7745  prefill=133ms decode=75.1ms/tok  5.0s
+    all_layers_pyramidkv mem_mb=  64  ppl=8088.92  kl=6.0043  prefill=131ms decode=75.5ms/tok  5.0s
+    proportional_h2o mem_mb=  64  ppl=141709667.02  kl=14.2004  prefill=128ms decode=78.9ms/tok  5.2s
+    proportional_snapkv mem_mb=  64  ppl=4548415369.32  kl=16.9464  prefill=131ms decode=74.3ms/tok  4.9s
+    proportional_streaming mem_mb=  64  ppl=157096034.16  kl=13.4756  prefill=132ms decode=76.0ms/tok  5.0s
+    proportional_pyramidkv mem_mb=  64  ppl=29801.38  kl=7.0674  prefill=132ms decode=75.1ms/tok  5.0s
+    hybrid_h2o       mem_mb=  64  ppl= 23.51  kl=0.0000  prefill=133ms decode=76.0ms/tok  5.0s
+    hybrid_snapkv    mem_mb=  64  ppl= 23.51  kl=0.0000  prefill=133ms decode=75.1ms/tok  5.0s
+    hybrid_streaming mem_mb=  64  ppl= 23.51  kl=0.0000  prefill=134ms decode=75.2ms/tok  5.0s
+    standard         mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=133ms decode=74.7ms/tok  5.0s
+    h2o              mem_mb= 512  ppl=70981678.88  kl=14.1532  prefill=129ms decode=78.8ms/tok  5.2s
+    snapkv           mem_mb= 512  ppl=20108175.65  kl=13.4200  prefill=130ms decode=74.4ms/tok  4.9s
+    streaming        mem_mb= 512  ppl=1135124315.39  kl=14.6935  prefill=133ms decode=74.1ms/tok  5.0s
+    pyramidkv        mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=133ms decode=74.9ms/tok  5.0s
+    all_layers_h2o   mem_mb= 512  ppl=70981678.88  kl=14.1532  prefill=129ms decode=79.3ms/tok  5.3s
+    all_layers_snapkv mem_mb= 512  ppl=20108175.65  kl=13.4200  prefill=132ms decode=74.2ms/tok  5.0s
+    all_layers_streaming mem_mb= 512  ppl=1135124315.39  kl=14.6935  prefill=134ms decode=74.8ms/tok  5.0s
+    all_layers_pyramidkv mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=132ms decode=74.9ms/tok  5.0s
+    proportional_h2o mem_mb= 512  ppl=70981678.88  kl=14.1532  prefill=129ms decode=78.5ms/tok  5.3s
+    proportional_snapkv mem_mb= 512  ppl=20108175.65  kl=13.4200  prefill=135ms decode=74.5ms/tok  5.0s
+    proportional_streaming mem_mb= 512  ppl=1135124315.39  kl=14.6935  prefill=134ms decode=75.2ms/tok  5.0s
+    proportional_pyramidkv mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=130ms decode=75.7ms/tok  5.0s
+    hybrid_h2o       mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=136ms decode=77.7ms/tok  5.1s
+    hybrid_snapkv    mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=134ms decode=76.8ms/tok  5.1s
+    hybrid_streaming mem_mb= 512  ppl= 23.51  kl=0.0000  prefill=130ms decode=75.8ms/tok  5.1s
+  [5/5] retrieval: 'A bio lab tech logs three constraints before a lon'
+    standard         mem_mb=   4  ppl= 18.84  kl=0.0000  prefill=132ms decode=75.6ms/tok  5.0s
+    h2o              mem_mb=   4  ppl=1050016629.26  kl=16.0034  prefill=136ms decode=79.3ms/tok  5.2s
+    snapkv           mem_mb=   4  ppl=147843743.77  kl=14.9123  prefill=133ms decode=75.8ms/tok  5.0s
+    streaming        mem_mb=   4  ppl=5452926832.52  kl=16.0833  prefill=137ms decode=74.7ms/tok  5.1s
+    pyramidkv        mem_mb=   4  ppl=935994118.69  kl=16.0508  prefill=137ms decode=75.2ms/tok  5.0s
+    all_layers_h2o   mem_mb=   4  ppl=521840300.80  kl=14.5296  prefill=130ms decode=79.1ms/tok  5.2s
+    all_layers_snapkv mem_mb=   4  ppl=2033436254.57  kl=16.4489  prefill=140ms decode=75.3ms/tok  5.0s
+    all_layers_streaming mem_mb=   4  ppl=171124342.78  kl=14.9177  prefill=138ms decode=75.3ms/tok  5.0s
+    all_layers_pyramidkv mem_mb=   4  ppl=232133036.28  kl=14.3502  prefill=138ms decode=74.9ms/tok  5.0s
+    proportional_h2o mem_mb=   4  ppl=615501206.63  kl=15.3714  prefill=131ms decode=79.1ms/tok  5.2s
+    proportional_snapkv mem_mb=   4  ppl=487934399.89  kl=15.6545  prefill=138ms decode=74.6ms/tok  5.0s
+    proportional_streaming mem_mb=   4  ppl=1088467743.39  kl=15.4244  prefill=140ms decode=75.4ms/tok  5.0s
+    proportional_pyramidkv mem_mb=   4  ppl=129032057.82  kl=14.6392  prefill=139ms decode=76.1ms/tok  5.0s
+    hybrid_h2o       mem_mb=   4  ppl=38792212.95  kl=14.6106  prefill=133ms decode=76.9ms/tok  5.1s
+    hybrid_snapkv    mem_mb=   4  ppl=172205496.06  kl=14.9764  prefill=133ms decode=75.1ms/tok  5.0s
+    hybrid_streaming mem_mb=   4  ppl=370069828.14  kl=15.1112  prefill=134ms decode=75.2ms/tok  5.0s
+    standard         mem_mb=  64  ppl= 18.84  kl=0.0000  prefill=132ms decode=74.3ms/tok  4.9s
+    h2o              mem_mb=  64  ppl=735029014.73  kl=14.7971  prefill=128ms decode=77.6ms/tok  5.1s
+    snapkv           mem_mb=  64  ppl=492860895.80  kl=14.6505  prefill=132ms decode=73.7ms/tok  4.9s
+    streaming        mem_mb=  64  ppl=909343033.86  kl=15.3623  prefill=132ms decode=74.7ms/tok  5.0s
+    pyramidkv        mem_mb=  64  ppl= 18.84  kl=0.0000  prefill=132ms decode=74.3ms/tok  5.0s
+    all_layers_h2o   mem_mb=  64  ppl=482138506.75  kl=15.6359  prefill=128ms decode=80.4ms/tok  5.3s
+    all_layers_snapkv mem_mb=  64  ppl=38497598.27  kl=15.7783  prefill=131ms decode=73.8ms/tok  4.9s
+    all_layers_streaming mem_mb=  64  ppl=1288282601.21  kl=16.2271  prefill=131ms decode=74.6ms/tok  5.0s
+    all_layers_pyramidkv mem_mb=  64  ppl=1574.01  kl=3.6648  prefill=132ms decode=74.2ms/tok  4.9s
+    proportional_h2o mem_mb=  64  ppl=59737348.58  kl=14.3081  prefill=129ms decode=78.7ms/tok  5.2s
+    proportional_snapkv mem_mb=  64  ppl=210650802.62  kl=14.9591  prefill=131ms decode=74.0ms/tok  5.0s
+    proportional_streaming mem_mb=  64  ppl=82845711.61  kl=14.7776  prefill=133ms decode=74.6ms/tok  5.0s
+    proportional_pyramidkv mem_mb=  64  ppl=10494.12  kl=5.2954  prefill=132ms decode=76.6ms/tok  5.0s
+    hybrid_h2o       mem_mb=  64  ppl= 18.84  kl=0.0000  prefill=133ms decode=77.1ms/tok  5.1s
+    hybrid_snapkv    mem_mb=  64  ppl= 18.84  kl=0.0000  prefill=132ms decode=75.4ms/tok  5.0s
+    hybrid_streaming mem_mb=  64  ppl= 18.84  kl=0.0000  prefill=132ms decode=75.3ms/tok  5.0s
+    standard         mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=131ms decode=74.6ms/tok  4.9s
+    h2o              mem_mb= 512  ppl=735029014.73  kl=14.7971  prefill=128ms decode=77.9ms/tok  5.2s
+    snapkv           mem_mb= 512  ppl=492860895.80  kl=14.6505  prefill=132ms decode=74.0ms/tok  4.9s
+    streaming        mem_mb= 512  ppl=909343033.86  kl=15.3623  prefill=134ms decode=78.7ms/tok  5.1s
+    pyramidkv        mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=130ms decode=75.0ms/tok  5.0s
+    all_layers_h2o   mem_mb= 512  ppl=735029014.73  kl=14.7971  prefill=128ms decode=77.6ms/tok  5.2s
+    all_layers_snapkv mem_mb= 512  ppl=492860895.80  kl=14.6505  prefill=132ms decode=74.1ms/tok  4.9s
+    all_layers_streaming mem_mb= 512  ppl=909343033.86  kl=15.3623  prefill=130ms decode=74.6ms/tok  4.9s
+    all_layers_pyramidkv mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=132ms decode=74.7ms/tok  5.0s
+    proportional_h2o mem_mb= 512  ppl=735029014.73  kl=14.7971  prefill=128ms decode=77.9ms/tok  5.2s
+    proportional_snapkv mem_mb= 512  ppl=492860895.80  kl=14.6505  prefill=130ms decode=74.3ms/tok  4.9s
+    proportional_streaming mem_mb= 512  ppl=909343033.86  kl=15.3623  prefill=133ms decode=74.5ms/tok  5.0s
+    proportional_pyramidkv mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=132ms decode=74.3ms/tok  5.0s
+    hybrid_h2o       mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=135ms decode=75.7ms/tok  5.0s
+    hybrid_snapkv    mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=133ms decode=75.0ms/tok  5.0s
+    hybrid_streaming mem_mb= 512  ppl= 18.84  kl=0.0000  prefill=133ms decode=75.0ms/tok  5.0s
+Results saved to results/gemma4_hybrid_canary/results.json (240
+runs)
+             Mean perplexity by strategy × memory budget (MB)
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ strategy               ┃      mem_mb=4 ┃     mem_mb=64 ┃    mem_mb=512 ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ standard               │         21.24 │         21.24 │         21.24 │
+│ h2o                    │ 1224672128.24 │ 1011671078.80 │ 1011671078.80 │
+│ snapkv                 │  575161234.09 │ 1482903312.78 │ 1482903312.78 │
+│ streaming              │ 1502540441.25 │  528818120.07 │  528818120.07 │
+│ pyramidkv              │  611599633.89 │         21.24 │         21.24 │
+│ all_layers_h2o         │  962853803.24 │  374514888.46 │ 1011671078.80 │
+│ all_layers_snapkv      │  610206811.44 │ 2324071617.09 │ 1482903312.78 │
+│ all_layers_streaming   │ 8366062096.41 │ 1816438958.44 │  528818120.07 │
+│ all_layers_pyramidkv   │ 1352377022.72 │      47646.34 │         21.24 │
+│ proportional_h2o       │  799980150.61 │  132053989.78 │ 1011671078.80 │
+│ proportional_snapkv    │  876355481.53 │ 2764319507.24 │ 1482903312.78 │
+│ proportional_streaming │ 1606660996.82 │ 2015791523.60 │  528818120.07 │
+│ proportional_pyramidkv │  251262157.69 │     178705.62 │         21.24 │
+│ hybrid_h2o             │  749740723.23 │         21.24 │         21.24 │
+│ hybrid_snapkv          │  844421985.60 │         21.24 │         21.24 │
+│ hybrid_streaming       │  804643226.24 │         21.24 │         21.24 │
+└────────────────────────┴───────────────┴───────────────┴───────────────┘
+Wrote results/gemma4_hybrid_canary/figures/pareto.png
+Wrote results/gemma4_hybrid_canary/figures/kl_pareto.png
+Wrote results/gemma4_hybrid_canary/figures/latency_pareto.png
+Wrote results/gemma4_hybrid_canary/figures/survival_heatmap.png
+Wrote
+results/gemma4_hybrid_canary/figures/layer_type_breakdown.png
+Wrote results/gemma4_hybrid_canary/figures/category_breakdown.png
+Wrote results/gemma4_hybrid_canary/figures/perplexity_delta.png
+Wrote results/gemma4_hybrid_canary/figures/kl_delta.png
+Wrote results/gemma4_hybrid_canary/figures/eviction_pressure.png
+Wrote
+results/gemma4_hybrid_canary/figures/prompt_length_effect.png
