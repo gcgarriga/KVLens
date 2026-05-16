@@ -125,8 +125,8 @@ def build_parser() -> argparse.ArgumentParser:
     generate_parser.add_argument("--instrument", action="store_true")
     generate_parser.add_argument("--device", help="torch device (default: cuda if available)")
 
-    info_parser = subparsers.add_parser("info")
-    info_parser.add_argument("--tiny", action="store_true")
+    info_parser = subparsers.add_parser("info", help="Show model/config information")
+    info_parser.add_argument("--tiny", action="store_true", help="Use the tiny CPU test config")
 
     experiment_parser = subparsers.add_parser("experiment", help="Run batch strategy comparison")
     experiment_parser.add_argument(
