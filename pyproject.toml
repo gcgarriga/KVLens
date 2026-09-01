@@ -26,6 +26,9 @@ dev = [
     "pytest>=7.0.0",
     "ruff>=0.4.0",
     "matplotlib>=3.8.0",
+    "packaging>=23.0",
+    # NumPy 2.5+ stubs require Python 3.12, while mypy targets our 3.11 minimum.
+    "numpy>=1.26,<2.5",
     "mypy>=1.10.0",
 ]
 
