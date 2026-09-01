@@ -5,8 +5,26 @@ from __future__ import annotations
 import tomllib
 from pathlib import Path
 
+from packaging.requirements import Requirement
+from packaging.utils import canonicalize_name
+from packaging.version import Version
+
 
 def test_dev_dependencies_keep_numpy_compatible_with_python_311() -> None:
-    pyproject = tomllib.loads((Path(__file__).parents[1] / "pyproject.toml").read_text())
+    with (Path(__file__).parents[1] / "pyproject.toml").open("rb") as pyproject_file:
+        pyproject = tomllib.load(pyproject_file)
 
-    assert "numpy>=1.26,<2.5" in pyproject["project"]["optional-dependencies"]["dev"]
+    requirements = (
+        Requirement(value) for value in pyproject["project"]["optional-dependencies"]["dev"]
+    )
+    numpy_requirements = [
+        requirement
+        for requirement in requirements
+        if canonicalize_name(requirement.name) == "numpy"
+    ]
+
+    assert len(numpy_requirements) == 1
+    assert any(
+        specifier.operator == "<" and Version(specifier.version) == Version("2.5")
+        for specifier in numpy_requirements[0].specifier
+    )
