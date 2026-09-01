@@ -23,8 +23,9 @@ def test_dev_dependencies_keep_numpy_compatible_with_python_311() -> None:
         if canonicalize_name(requirement.name) == "numpy"
     ]
 
-    assert len(numpy_requirements) == 1
-    assert any(
-        specifier.operator == "<" and Version(specifier.version) == Version("2.5")
-        for specifier in numpy_requirements[0].specifier
-    )
+    assert numpy_requirements
+    for requirement in numpy_requirements:
+        assert any(
+            specifier.operator == "<" and Version(specifier.version) == Version("2.5")
+            for specifier in requirement.specifier
+        )
